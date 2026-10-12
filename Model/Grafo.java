@@ -16,11 +16,14 @@ class Grafo<X>{
         CidadesDesejadas.add(a);
     }
 
-    public void adicionarAresta(X partida, X chegada, X estrada ){
+    public void adicionarArestaeVertice(X partida, X chegada, X estrada ){
 
     
         if(partida.getVertices()!=null & chegada.getVertices!=null)
-            GrafoMatriz[partida][chegada] = estrada;
+            GrafoMatriz[partida.posicaoDoVertice()][chegada.posicaoDoVertice()] = estrada;
+            GrafoMatriz[chegada.posicaoDoVertice()][partida.posicaoDoVertice()] = estrada;
+            partida.adicionarArestaSaida(estrada);
+            chegada.adicionarArestaEntrada(estrada);
     }
 
     public int posicaoDoVertice(X vertice){
@@ -46,7 +49,7 @@ class Grafo<X>{
         return vertice;
         }
 
-        
+
 
 
     }
