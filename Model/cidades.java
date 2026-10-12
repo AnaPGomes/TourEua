@@ -1,12 +1,21 @@
-package Model
+package Model;
 
 class cidade{
     private String nome;
     private Integer populacao;
+    private Integer dias;
 
-    public void cidade(String nome, Integer populacao{
+    public cidade(String nome, Integer populacao, Integer dias){
         this.nome= nome;
         this.populacao= populacao;
+        this.dias= dias;
+    }
+
+    
+    public cidade(String nome, Integer populacao){
+        this.nome= nome;
+        this.populacao= populacao;
+        this.dias= 1;
     }
 
     public void setNome(String nome){
@@ -23,6 +32,14 @@ class cidade{
 
     public Integer getPopulacao(){
         return  this.Populacao;
+    }
+
+     public void setDias(Integer  dias){
+        this.dias= dias;
+    }
+
+    public Integer getDias(){
+        return  this.dias;
     }
 
 }

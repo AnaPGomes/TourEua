@@ -1,10 +1,10 @@
-package Model
+package Model;
 
 class EstradaAresta{
     private Float custo;
     private  Float comprimento;
 
-    public void EStradaAresta(Floa tcusto, Float comprimento{
+    public void EStradaAresta(Floa custo, Float comprimento){
         this.custo= custo;
         this.comprimento= comprimento;
     }
