@@ -3,34 +3,36 @@ package Model;
 import java.util.ArrayList;
 
 class Grafo<X>{
-    private ArrayList<X> CidadesDesejadas;
+    private ArrayList<X> CidadesVerticesIndices;
     private X[][] GrafoMatriz;
 
     public Grafo(){
-        this.CidadesDesejadas= new arrayList<X>();
+        this.CidadesVerticesIndices= new arrayList<X>();
         this.GrafoMatriz=new arrayList<X>();
 
     }
 
     public void adicionarVertice(X a){
-        CidadesDesejadas.add(a);
+        CidadesVerticesIndices.add(a);
     }
 
     public void adicionarArestaeVertice(X partida, X chegada, X estrada ){
+        //partida e coluna e chagada e linha 
 
     
         if(partida.getVertices()!=null & chegada.getVertices!=null)
-            GrafoMatriz[partida.posicaoDoVertice()][chegada.posicaoDoVertice()] = estrada;
+           
             GrafoMatriz[chegada.posicaoDoVertice()][partida.posicaoDoVertice()] = estrada;
+            GrafoMatriz[partida.posicaoDoVertice()][chegada.posicaoDoVertice()] = estrada;
             partida.adicionarArestaSaida(estrada);
             chegada.adicionarArestaEntrada(estrada);
     }
 
     public int posicaoDoVertice(X vertice){
         int posicao=0;
-        for(int i =0; i<= CidadesDesejadas.size(); i++){
+        for(int i =0; i<= CidadesVerticesIndices.size(); i++){
             
-            if(CidadesDesejadas.get(i).equals(vertice)){//no arraylist vc usa .get(i)
+            if(CidadesVerticesIndices.get(i).equals(vertice)){//no arraylist vc usa .get(i)
                 posicao=i;
                 break;
             }
@@ -40,7 +42,7 @@ class Grafo<X>{
     }
     public X getVertices(X dado){
         X vertice= null;
-        for(int i; i<=CidadesDesejadas.size(); i++){
+        for(int i; i<=CidadesVerticesIndices.size(); i++){
             if(this.vertices[i].equals(dado)){
                 vertice=this.vertices[i];
                 break; //fecha o for
@@ -48,9 +50,13 @@ class Grafo<X>{
             }
         return vertice;
         }
-
-
-
-
     }
+
+    public arrayList<X> getCidadesdoGrafo(){
+        return this.CidadesVerticesIndices;
+    }
+    public X[][] getGrafoMatriz(){
+        return this.GrafoMatriz;
+    }
+
 }
